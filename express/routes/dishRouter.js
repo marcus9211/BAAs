@@ -25,4 +25,23 @@ dishRouter.route('/')
     res.end('Deleting all dishes');
 });
 
+dishRouter.route("/:dishId")
+.all((req,res,next)=>{
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    next();
+})
+.get((req, res)=>{
+res.end(`dishes with dish id ${req.params.dishId} will be served`);
+})
+.post((req, res)=>{
+    res.end("invalid operation");
+})
+.put((req,res)=>{
+    res.end(`dish with dish id ${req.params.dishId} will be updated`);
+})
+.delete((req, res)=>{
+res.end(` dish with dish id ${req.params.dishId} will be deleted`);
+})
+
 module.exports = dishRouter;

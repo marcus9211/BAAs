@@ -7,7 +7,11 @@ const morgan = require('morgan');
 const app = express();
 const bodyParser = require('body-parser');
 const dishRouter = require('./routes/dishRouter');
+const leaderRouter = require('./routes/leaderRouter');
+const promoRouter = require('./routes/promoRouter');
 
+app.use('/promotions', promoRouter);
+app.use('/leaders', leaderRouter);
 app.use('/dishes', dishRouter);
 app.use(morgan('dev'));
 
