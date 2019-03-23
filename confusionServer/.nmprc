@@ -1,0 +1,2 @@
+npm config get set save true
+npm config set
